@@ -1,11 +1,11 @@
 import requests
 import pandas as pd
-from datetime import datetime
 import seaborn as sns
 import matplotlib.pyplot as plt
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.image import MIMEImage
+from datetime import datetime, timedelta
 import smtplib
 import io
 import os
@@ -92,7 +92,8 @@ def main():
     # CREATE EMAIL CONTENT
     # -----------------------------
     msg = MIMEMultipart()
-    msg["Subject"] = f"📈 Daily NSE Top Gainers Report - {datetime.now().strftime('%Y-%m-%d')}"
+    # msg["Subject"] = f"📈 Daily NSE Top Gainers Report - {datetime.now().strftime('%Y-%m-%d')}"
+    msg["Subject"] = f"📈 Daily NSE Top Gainers Report - {ist_time.strftime('%Y-%m-%d %H:%M:%S')} (IST)"
     msg["From"] = SENDER
     msg["To"] = RECEIVER
 
