@@ -3,7 +3,7 @@ name: Daily NSE Email Bot
 
 on:
   schedule:
-    - cron: "0 6 * * *"   # runs every day at 6:00 AM UTC (11:30 AM India)
+    - cron: "56 9 * * *"  # runs every day at 6:00 AM UTC (11:30 AM India)
   workflow_dispatch:       # allows manual run
 
 jobs:
