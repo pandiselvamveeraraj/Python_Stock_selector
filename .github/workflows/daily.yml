@@ -1,0 +1,30 @@
+
+name: Daily NSE Email Bot
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # runs every day at 6:00 AM UTC (11:30 AM India)
+  workflow_dispatch:       # allows manual run
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install requests pandas seaborn matplotlib
+
+      - name: Run Python Script
+        env:
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+          EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}        
+        run: python main.py
