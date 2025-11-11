@@ -2,7 +2,8 @@ name: Run Daily NSE Report
 
 on:
   schedule:
-    - cron: '0 9 * * *'  # Runs every day at 2:30 PM IST
+    - cron: '55 3 * * *'  # Runs every day at 9:25 AM IST
+
   workflow_dispatch:
 
 jobs:
